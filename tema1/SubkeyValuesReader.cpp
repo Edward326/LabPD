@@ -1,4 +1,4 @@
-﻿#include <windows.h>
+#include <windows.h>
 #include <iostream>
 #include <tchar.h>
 
@@ -35,7 +35,7 @@ void ListRegistryValues(LPCTSTR subKeyPath) {
             DWORD type = 0;
 
             if (RegEnumValue(hKey, i, valueName, &nameSize, NULL, &type, valueData, &dataSize) == ERROR_SUCCESS) {
-                _tprintf(L"\n\n%lu. %ls\n",i+1, (nameSize == 0) ? L"(Default)" : valueName);
+                _tprintf(L"\n\n%lu. %ls\n", i + 1, (nameSize == 0) ? L"(Default)" : valueName);
 
                 switch (type) {
                 case REG_SZ:
@@ -59,7 +59,7 @@ void ListRegistryValues(LPCTSTR subKeyPath) {
                 }
             }
             else
-                _tprintf(L"Error getting info about Value no %lu",i);
+                _tprintf(L"Error getting info about Value no %lu", i);
         }
     }
 
